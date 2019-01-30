@@ -32,18 +32,8 @@ public class Main {
             array[i] = w.nextInt();
         }
         System.out.println("Your array is " + Arrays.toString(array));
-        int z;
-        for (int i = array.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (array[j] > array[j + 1]) {
-                    z = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = z;
-                }
-            }
-        }
-        System.out.println("Sorted array is " + Arrays.toString(array));
-        System.out.println("Final array is " + Arrays.toString(arrayMethod(array)));
+        System.out.println("Sorted array is " + Arrays.toString(sortArray(array)));
+        methodForTheSecondTaskOfTheSecondHomework(array);
         System.out.println("Task_3");
         Map<String, String> latinAlphabet = new HashMap<>();
         latinAlphabet.put("A", "a");
@@ -72,51 +62,6 @@ public class Main {
         latinAlphabet.put("X", "x");
         latinAlphabet.put("Y", "y");
         latinAlphabet.put("Z", "z");
-        latinAlphabet.put("a", "a");
-        latinAlphabet.put("b", "b");
-        latinAlphabet.put("c", "c");
-        latinAlphabet.put("d", "d");
-        latinAlphabet.put("e", "e");
-        latinAlphabet.put("f", "f");
-        latinAlphabet.put("g", "g");
-        latinAlphabet.put("h", "h");
-        latinAlphabet.put("i", "i");
-        latinAlphabet.put("j", "j");
-        latinAlphabet.put("k", "k");
-        latinAlphabet.put("l", "l");
-        latinAlphabet.put("m", "m");
-        latinAlphabet.put("n", "n");
-        latinAlphabet.put("o", "o");
-        latinAlphabet.put("p", "p");
-        latinAlphabet.put("q", "q");
-        latinAlphabet.put("r", "r");
-        latinAlphabet.put("s", "s");
-        latinAlphabet.put("t", "t");
-        latinAlphabet.put("u", "u");
-        latinAlphabet.put("v", "v");
-        latinAlphabet.put("w", "w");
-        latinAlphabet.put("x", "x");
-        latinAlphabet.put("y", "y");
-        latinAlphabet.put("0", "0");
-        latinAlphabet.put("1", "1");
-        latinAlphabet.put("2", "2");
-        latinAlphabet.put("3", "3");
-        latinAlphabet.put("4", "4");
-        latinAlphabet.put("5", "5");
-        latinAlphabet.put("6", "6");
-        latinAlphabet.put("7", "7");
-        latinAlphabet.put("8", "8");
-        latinAlphabet.put("9", "9");
-        latinAlphabet.put("_", "_");
-        latinAlphabet.put(" ", " ");
-        latinAlphabet.put("!", "!");
-        latinAlphabet.put(".", ".");
-        latinAlphabet.put(":", ":");
-        latinAlphabet.put(";", ";");
-        latinAlphabet.put("?", "?");
-        latinAlphabet.put("#", "#");
-        latinAlphabet.put("/", "/");
-        latinAlphabet.put("@", "@");
         String string1;
         System.out.println("Enter string");
         string1 = s.nextLine();
@@ -126,10 +71,11 @@ public class Main {
             String str5 = string1.substring(i, i + 1);
             if (latinAlphabet.containsKey(str5)) {
                 stringBuilderString1.append(latinAlphabet.get(str5));
+            } else {
+                stringBuilderString1.append(str5);
             }
         }
         System.out.println("New string is " + stringBuilderString1.toString());
-
     }
 
     public static void numJewelersInStones(String jewelers, String stones) {
@@ -146,21 +92,25 @@ public class Main {
         System.out.println("Count of jewelers in stones is " + count);
     }
 
-    public static int[] arrayMethod(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            array[i] = (int) Math.pow(array[i], 2);
-        }
-        System.out.println("Array in second degree is " + Arrays.toString(array));
-        int z;
+    public static int[] sortArray(int[] array) {
+        int arrayElement;
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (array[j] > array[j + 1]) {
-                    z = array[j];
+                    arrayElement = array[j];
                     array[j] = array[j + 1];
-                    array[j + 1] = z;
+                    array[j + 1] = arrayElement;
                 }
             }
         }
         return array;
+    }
+
+    public static void methodForTheSecondTaskOfTheSecondHomework(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = (int) Math.pow(array[i], 2);
+        }
+        System.out.println("Array in second degree is " + Arrays.toString(array));
+        System.out.println("New sorted array is " + Arrays.toString(sortArray(array)));
     }
 }
